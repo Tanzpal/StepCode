@@ -3,12 +3,7 @@ import styles from "./LandingPage.module.css";
 
 export default function LandingPage() {
   // Add the phrases you want to cycle through here
-  const words = [
-    "Build Projects",
-    "Master Python",
-    "Solve Problems",
-    "Level Up",
-  ];
+  const words = ["Master Python", "Solve Problems", "Level Up"];
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
