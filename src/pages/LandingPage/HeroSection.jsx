@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import styles from "./LandingPage.module.css";
+import styles from "./HeroSection.module.css";
 
-export default function LandingPage() {
+export default function HeroSection() {
   // Add the phrases you want to cycle through here
   const words = ["Master Python", "Solve Problems", "Level Up"];
 
