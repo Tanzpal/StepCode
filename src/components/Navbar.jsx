@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import styles from "./Navbar.module.css";
 import logo from "../assets/stepcode-logo.png";
+import { Link } from "react-router-dom";
 
 const links = [
   { label: "Contact", href: "#Contact" },
@@ -17,7 +18,7 @@ export default function Navbar() {
   return (
     <header className={styles.navbar}>
       {/* Logo */}
-      <a className={styles.brand} href="#home">
+      <a className={styles.brand} href="/">
         <img src={logo} alt="StepCode — Small steps. Big dreams." />
       </a>
 
@@ -46,13 +47,13 @@ export default function Navbar() {
             Sign in
           </a>
 
-          <a
+          <Link
             className={styles.mobileGetStarted}
-            href="#get-started"
+            to="/signup"
             onClick={() => setMenuOpen(false)}
           >
             Get started
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -60,9 +61,9 @@ export default function Navbar() {
       <div className={styles.navActions}>
         <a href="#signin">Sign in</a>
 
-        <a className={styles.getStarted} href="#get-started">
+        <Link className={styles.getStarted} to="/signup">
           Get started
-        </a>
+        </Link>
       </div>
     </header>
   );

@@ -1,11 +1,14 @@
-import Navbar from "./components/Navbar.jsx";
-import LandingPage from "./pages/LandingPage/LandingPage.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import Signup from "./pages/User-Authentication/Signup";
 
 export default function App() {
   return (
-    <>
-      <Navbar />
-      <LandingPage />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
