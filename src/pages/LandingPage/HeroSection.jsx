@@ -2,67 +2,77 @@ import { useState, useEffect } from "react";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
-  // Add the phrases you want to cycle through here
   const words = ["Master Python", "Solve Problems", "Level Up"];
 
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentText, setCurrentText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const fullWord = words[currentWordIndex];
+    const word = words[wordIndex];
 
-    // Slower typing, deleting, and reading pauses
-    let timerSpeed = isDeleting ? 90 : 140;
+    // Typing speed, deleting speed, and reading time
+    let speed = deleting ? 90 : 140;
 
-    if (!isDeleting && currentText === fullWord) {
-      // Give visitors enough time to read the complete phrase
-      timerSpeed = 3000;
-      setIsDeleting(true);
-    } else if (isDeleting && currentText === "") {
-      // Brief pause before typing the next phrase
-      setIsDeleting(false);
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-      timerSpeed = 600;
+    if (!deleting && text === word) {
+      speed = 3000;
     }
 
-    const timeout = setTimeout(() => {
-      setCurrentText((prev) => {
-        if (isDeleting) {
-          return fullWord.substring(0, prev.length - 1);
-        } else {
-          return fullWord.substring(0, prev.length + 1);
-        }
-      });
-    }, timerSpeed);
+    if (deleting && text === "") {
+      speed = 600;
+    }
 
-    return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, currentWordIndex]);
+    const timer = setTimeout(() => {
+      // Delete one letter at a time
+      if (deleting) {
+        setText(text.slice(0, -1));
+      } else {
+        // Add one letter at a time
+        setText(word.slice(0, text.length + 1));
+      }
+
+      // Start deleting when the word is complete
+      if (!deleting && text === word) {
+        setDeleting(true);
+      }
+
+      // Move to the next word when deletion is complete
+      if (deleting && text === "") {
+        setDeleting(false);
+        setWordIndex((wordIndex + 1) % words.length);
+      }
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [text, deleting, wordIndex]);
 
   return (
     <main className={styles.hero} id="home">
-      <section className={styles.copy} aria-labelledby="hero-title">
-        <h1 id="hero-title">
+      <section className={styles.copy}>
+        <h1>
           Learn to Code.
           <br className={styles.desktopBreak} />
           Think. Solve. Grow.
           <br />
-          {/* Animated typing text container */}
           <span className={styles.typingContainer}>
-            <span className={styles.gradientText}>{currentText}</span>
+            <span className={styles.gradientText}>{text}</span>
             <span className={styles.cursor}>|</span>
           </span>
         </h1>
+
         <p>
           Your journey to becoming a better programmer starts here. Practice
           Python, master problem-
-          <br className={styles.desktopBreak} /> solving, and use AI-powered
-          insights to write better code — one challenge at a time.
+          <br className={styles.desktopBreak} />
+          solving, and use AI-powered insights to write better code — one
+          challenge at a time.
         </p>
+
         <div className={styles.actions}>
           <a className={styles.primaryButton} href="#get-started">
-            Start for free <span aria-hidden="true">›</span>
+            Start for free <span>›</span>
           </a>
+
           <a className={styles.secondaryButton} href="#contact">
             Talk to sales
           </a>
