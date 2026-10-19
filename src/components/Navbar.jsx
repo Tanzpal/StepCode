@@ -16,38 +16,36 @@ export default function Navbar() {
 
   return (
     <header className={styles.navbar}>
-      <a className={styles.brand} href="#home" aria-label="StepCode home">
+      {/* Logo */}
+      <a className={styles.brand} href="#home">
         <img src={logo} alt="StepCode — Small steps. Big dreams." />
       </a>
 
+      {/* Mobile menu button */}
       <button
         className={styles.menuToggle}
-        type="button"
-        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen((open) => !open)}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation"
       >
         {menuOpen ? <X size={23} /> : <Menu size={23} />}
       </button>
 
+      {/* Navigation links */}
       <nav
         className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ""}`}
-        aria-label="Main navigation"
       >
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            onClick={() => setMenuOpen(false)}
-          >
+        {links.map((link, index) => (
+          <a key={index} href={link.href} onClick={() => setMenuOpen(false)}>
             {link.label}
           </a>
         ))}
+
+        {/* Mobile buttons */}
         <div className={styles.mobileActions}>
-          {/* <a href="#migrate" onClick={() => setMenuOpen(false)}>Migrate to StepCode</a> */}
           <a href="#signin" onClick={() => setMenuOpen(false)}>
             Sign in
           </a>
+
           <a
             className={styles.mobileGetStarted}
             href="#get-started"
@@ -58,9 +56,10 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/* Desktop buttons */}
       <div className={styles.navActions}>
-        {/* <a href="#migrate">Migrate to StepCode</a> */}
         <a href="#signin">Sign in</a>
+
         <a className={styles.getStarted} href="#get-started">
           Get started
         </a>
