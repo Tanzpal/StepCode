@@ -59,8 +59,6 @@ export default function Navbar() {
 
       {/* Desktop buttons */}
       <div className={styles.navActions}>
-        <a href="#signin">Sign in</a>
-
         <Link className={styles.getStarted} to="/signup">
           Get started
         </Link>
