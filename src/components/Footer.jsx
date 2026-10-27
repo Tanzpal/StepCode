@@ -20,9 +20,9 @@ export default function Footer() {
 
         <div className={styles.links}>
           <h3>Explore</h3>
-          <a href="/">Home</a>
-          <a href="/#problems">Problems</a>
-          <a href="/#leaderboard">Leaderboard</a>
+          <a href="#Hero">Home</a>
+          <a href="#problems">Problems</a>
+          <a href="#leaderboard">Leaderboard</a>
         </div>
 
         <div className={styles.links}>

@@ -48,7 +48,7 @@ export default function HeroSection() {
 
   return (
     <main className={styles.hero} id="home">
-      <section className={styles.copy}>
+      <section className={styles.copy} id="Hero">
         <h1>
           Learn to Code.
           <br className={styles.desktopBreak} />
