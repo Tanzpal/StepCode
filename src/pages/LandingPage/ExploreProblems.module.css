@@ -1,0 +1,224 @@
+.section {
+  width: 100%;
+  padding: 100px 6%;
+  background: #050505;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section heading */
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #a78bfa;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.heading h2 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.heading h2 span {
+  color: #a78bfa;
+}
+
+.heading > p {
+  max-width: 560px;
+  margin: 18px auto 0;
+  color: #a1a1aa;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Problem cards */
+
+.problemList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px;
+  background: #050505;
+  border: 1px solid #25232c;
+  border-radius: 14px;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.card:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-5px);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.problemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  color: #a78bfa;
+  border: 1px solid #35264e;
+  border-radius: 10px;
+}
+
+.number {
+  color: #62616b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Difficulty badges */
+
+.difficulty {
+  padding: 5px 10px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.easy {
+  color: #86efac;
+  background: #10251a;
+}
+
+.medium {
+  color: #fcd34d;
+  background: #29210d;
+}
+
+.hard {
+  color: #fca5a5;
+  background: #2b1518;
+}
+
+/* Problem information */
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.topic {
+  margin: 0 0 14px;
+  color: #a78bfa;
+  font-size: 13px;
+}
+
+.description {
+  min-height: 72px;
+  margin: 0 0 24px;
+  color: #a1a1aa;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Links */
+
+.solveLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.solveLink:hover {
+  color: #a78bfa;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.viewButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
+  color: #ffffff;
+  background: #8b5cf6;
+  border: 1px solid #8b5cf6;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.viewButton:hover {
+  background: #7c3aed;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 5%;
+  }
+
+  .problemList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 65px 6%;
+  }
+
+  .heading {
+    margin-bottom: 38px;
+  }
+
+  .problemList {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .description {
+    min-height: auto;
+  }
+}
