@@ -1,0 +1,121 @@
+.sidebar {
+  width: 245px;
+  min-height: 100vh;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  background: #080808;
+  border-right: 1px solid #25232c;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  color: #a78bfa;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.label {
+  margin: 42px 10px 15px;
+  color: #71717a;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.nav {
+  display: grid;
+  gap: 8px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 12px;
+  border-radius: 9px;
+  color: #a1a1aa;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.link:hover,
+.active {
+  color: white;
+  background: #21163d;
+}
+
+.active svg {
+  color: #a78bfa;
+}
+
+.bottom {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 35px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 20px;
+  padding: 18px 5px 0;
+  border-top: 1px solid #25232c;
+}
+
+.avatar {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  color: #c4b5fd;
+  background: #21163d;
+  border-radius: 50%;
+}
+
+.user strong {
+  font-size: 13px;
+}
+
+.user p {
+  margin: 5px 0 0;
+  color: #71717a;
+  font-size: 11px;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 70px;
+    padding: 24px 10px;
+    align-items: center;
+  }
+
+  .logo {
+    padding: 0;
+  }
+
+  .logo span,
+  .label,
+  .link span,
+  .user > div:last-child {
+    display: none;
+  }
+
+  .link {
+    justify-content: center;
+    padding: 13px 10px;
+  }
+
+  .user {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

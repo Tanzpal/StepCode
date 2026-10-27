@@ -1,5 +1,6 @@
 import styles from "./Final.module.css";
 import { ArrowRight, Code2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function FinalCTA() {
   return (
@@ -18,9 +19,9 @@ export default function FinalCTA() {
           a time.
         </p>
 
-        <a href="/signup" className={styles.button}>
+        <Link to="/Dashboard" className={styles.button}>
           Start Coding for Free <ArrowRight size={18} />
-        </a>
+        </Link>
 
         <small>No experience needed. Just start learning.</small>
       </div>

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AuthPage from "./pages/User-Authentication/AuthPage";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Route path="/signup" element={<AuthPage />} />
 
         <Route path="/login" element={<AuthPage />} />
+
+        <Route path="/Dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
