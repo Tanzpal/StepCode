@@ -70,11 +70,11 @@ export default function HeroSection() {
 
         <div className={styles.actions}>
           <a className={styles.primaryButton} href="#get-started">
-            Start for free <span>›</span>
+            Get Stated <span>›</span>
           </a>
 
           <a className={styles.secondaryButton} href="#contact">
-            Talk to sales
+            Know more
           </a>
         </div>
       </section>
